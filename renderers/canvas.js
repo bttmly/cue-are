@@ -1,10 +1,6 @@
-const qr = require("../");
-
-function renderCanvas (value, options = {}) {
+function renderCanvas (rows, options = {}) {
 
   const { cellSize = 4, margin = 8 } = options;
-
-  const rows = qr(value);
 
   const canvas = document.createElement("canvas");
   const size = rows * cellSize;

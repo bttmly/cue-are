@@ -9,17 +9,17 @@ class QrComponent extends React.Component {
   };
 
   static propTypes = {
-    value: React.PropTypes.string.isRequired,
+    rows: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.oneOf([0, 1]))),
     rowClass: React.PropTypes.string,
     blackCellClass: React.PropTypes.string,
     whiteCellClass: React.PropTypes.string,
   };
 
   render () {
-    const { value } = this.props;
+    const { rows } = this.props;
     return (
       <div>
-        { qr(value).map(this._renderRow) }
+        { rows.map(this._renderRow) }
       </div>
     );
   }

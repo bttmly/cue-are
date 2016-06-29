@@ -1,6 +1,4 @@
-const qr = require("../");
-
-function renderDom (value, options = {}) {
+function renderDom (rows, options = {}) {
   const {
     blackCellClass = "qr-cell-black",
     whiteCellClass = "qr-cell-white",
@@ -21,7 +19,7 @@ function renderDom (value, options = {}) {
     return cell;
   }
 
-  qr(value).forEach(function (row) {
+  rows.forEach(function (row) {
     var rowDiv = makeRow();
     container.appendChild(rowDiv);
     row.forEach(function (cell) {
