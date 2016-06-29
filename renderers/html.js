@@ -1,6 +1,6 @@
-const qr = require("..");
+const qr = require("../");
 
-function renderHtml (str, options = {}) {
+function renderHtml (value, options = {}) {
   const {
     blackCellClass = "qr-cell-black",
     whiteCellClass = "qr-cell-white",
@@ -18,7 +18,7 @@ function renderHtml (str, options = {}) {
     ].join("");
   }
 
-  return qr(str).map(makeRow).join("");
+  return qr(value).map(makeRow).join("");
 }
 
 module.exports = renderHtml;

@@ -1,4 +1,4 @@
-const qr = require("..");
+const qr = require("../");
 
 function renderDom (value, options = {}) {
   const {
@@ -31,3 +31,5 @@ function renderDom (value, options = {}) {
 
   return container;
 }
+
+module.exports = renderDom;
