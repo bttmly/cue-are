@@ -1,19 +1,12 @@
 const React = require("react");
-const qr = require("../");
 
 class QrComponent extends React.Component {
-  static defaultProps = {
-    rowClass: "qr-row",
-    blackCellClass: "qr-cell-black",
-    whiteCellClass: "qr-cell-white",
-  };
 
-  static propTypes = {
-    rows: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.oneOf([0, 1]))),
-    rowClass: React.PropTypes.string,
-    blackCellClass: React.PropTypes.string,
-    whiteCellClass: React.PropTypes.string,
-  };
+  constructor (props) {
+    super(props);
+    this._renderRow = this._renderRow.bind(this);
+    this._renderCell = this._renderCell.bind(this);
+  }
 
   render () {
     const { rows } = this.props;
@@ -24,18 +17,35 @@ class QrComponent extends React.Component {
     );
   }
 
-  _renderRow = (cells) => (
-    <div className={ this.props.rowClass }>
-      { cells.map(this._renderCell) }
-    </div>
-  );
+  _renderRow (cells) {
+      return (
+      <div className={ this.props.rowClass }>
+        { cells.map(this._renderCell) }
+      </div>
+    );
+  }
 
-  _renderCell = (v) => (
-    <div className={ v ?
-      this.props.blackCellClass :
-      this.props.whiteCellClass }
-    />
-  );
+  _renderCell (v) {
+    return (
+      <div className={ v ?
+        this.props.blackCellClass :
+        this.props.whiteCellClass }
+      />
+    );
+  }
 }
+
+QrComponent.defaultProps = {
+  rowClass: "qr-row",
+  blackCellClass: "qr-cell-black",
+  whiteCellClass: "qr-cell-white",
+};
+
+QrComponent.propTypes = {
+  rows: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.oneOf([0, 1]))),
+  rowClass: React.PropTypes.string,
+  blackCellClass: React.PropTypes.string,
+  whiteCellClass: React.PropTypes.string,
+};
 
 module.exports = QrComponent;
