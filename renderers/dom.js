@@ -25,7 +25,7 @@ function renderDom (rows, options = {}) {
     row.forEach(function (cell) {
       rowDiv.appendChild(makeCell(cell));
     });
-  }
+  });
 
   return container;
 }

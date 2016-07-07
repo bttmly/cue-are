@@ -24,22 +24,18 @@ class QrComponent extends React.Component {
     );
   }
 
-  _renderRow (cells) {
-    return (
-      <div className={ this.props.rowClass }>
-        { cells.map(this._renderCell) }
-      </div>
-    );
-  }
+  _renderRow = (cells) => (
+    <div className={ this.props.rowClass }>
+      { cells.map(this._renderCell) }
+    </div>
+  );
 
-  _renderCell (v) {
-    return (
-      <div className={ v ?
-        this.props.blackCellClass :
-        this.props.whiteCellClass }
-      />;
-    );
-  }
+  _renderCell = (v) => (
+    <div className={ v ?
+      this.props.blackCellClass :
+      this.props.whiteCellClass }
+    />
+  );
 }
 
 module.exports = QrComponent;

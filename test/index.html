@@ -1,21 +1,75 @@
 <html>
 
   <head>
-    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css">
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    <style>
+    .qr-cell-black {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: black;
+    }
+
+    .qr-cell-white {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: white;
+    }
+
+    .render-target {
+      margin-bottom: 4rem;
+    }
+    </style>
   </head>
 
   <body>
     <div id="mocha"></div>
     <div id="messages"></div>
 
+    <h3>HTML</h3><div id="html-render-target" class="render-target"></div>
+    <h3>DOM</h3><div id="dom-render-target" class="render-target"></div>
+    <h3>Canvas</h3><div id="canvas-render-target" class="render-target"></div>
+    <h3>React</h3><div id="react-render-target" class="render-target"></div>
+
     <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/react/dist/react.js"></script>
+    <script src="../node_modules/react-dom/dist/react-dom.js"></script>
+
+    <script src="browserified.js"></script>
     <script>
       mocha.setup({ ui: "bdd", timeout: 60 * 1000 });
 
-      describe("qr code", function () {
+      const str = "Shall I compare thee to a summer's day? Thou art more lovely and more temperate. Rough winds do shake the darling buds of May, And summer's lease hath all too short a date."
 
+      describe("qr code", function () {
+        it("works", function () {
+          qrCode(str)
+        });
+  
+        it("DOM renderer", function () {
+          const el = domRenderer(qrCode(str));
+          document.querySelector("#dom-render-target").appendChild(el);
+        });
+
+        it("HTML renderer", function () {
+          const html = htmlRenderer(qrCode(str));
+          document.querySelector("#html-render-target").innerHTML = html;
+        });
+
+        it("Canvas renderer", function () {
+          const el = canvasRenderer(qrCode(str));
+          document.querySelector("#canvas-render-target").appendChild(el);
+        });
+
+        it("React renderer", function () {
+          ReactDOM.render(
+            React.createElement(QrComponent, { rows: qrCode(str) }),
+            document.querySelector("#react-render-target")
+          );
+        })
       });
 
       mocha.run();
   </script>
-</html>%
+</html>
