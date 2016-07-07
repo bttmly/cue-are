@@ -1,6 +1,6 @@
 # cue-are
 
-A miniscule, isomorphic, functional wrapper around the the JavaScript implementation of [qrcode-generator](https://github.com/kazuhikoarase/), plus a few renderers for displaying QR codes in various contexts. Node.js or browser.
+A miniscule, isomorphic, functional wrapper around the the JavaScript implementation of [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator), plus a few renderers for displaying QR codes in various contexts. Node.js or browser.
 
 #### Installation
 
