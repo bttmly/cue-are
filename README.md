@@ -61,7 +61,7 @@ var htmlStr = htmlRenderer(qr("gibberish"));
 ```js
 var qr = require("cue-are");
 var domRenderer = require("cue-are/renderers/dom");
-var el = htmlRenderer(qr("gibberish"));
+var el = domRenderer(qr("gibberish"));
 
 // `el` is the root DOM node of the generated tree
 // then something like `document.body.appendChild(el)`
