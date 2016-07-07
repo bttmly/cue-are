@@ -56,13 +56,40 @@ var htmlStr = htmlRenderer(qr("gibberish"));
 // then something like `document.body.innerHTML = htmlStr`
 ```
 
-##### HTML
+##### DOM
 
 ```js
 var qr = require("cue-are");
 var domRenderer = require("cue-are/renderers/dom");
 var el = htmlRenderer(qr("gibberish"));
 
+// `el` is the root DOM node of the generated tree
 // then something like `document.body.appendChild(el)`
 ```
 
+##### Canvas
+
+```js
+var qr = require("cue-are");
+var canvasRenderer = require("cue-are/renderers/canvas");
+var canvas = canvasRenderer(qr("gibberish"));
+
+// `canvas` is a Canvas DOM node
+// then something like `document.body.appendChild(canvas)`
+```
+
+##### React
+```jsx
+import qr from "cue-are";
+import QrComponent from "cue-are/renderers/react";
+
+<QrComponent rows={qr("gibberish")}/>
+```
+
+##### Terminal
+```js
+// returns a string that displays a QR code when printed in the console
+var qr = require("cue-are");
+var terminalRenderer = require("cue-are/renderers/terminal");
+console.log(terminalRenderer(qr("gibberish")))
+```
