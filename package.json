@@ -8,7 +8,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test/index.js",
+    "test-browser": "browserify -t babelify test/browser.js > test/browserified.js; open test/index.html"
   },
   "author": "Nick Bottomley",
   "license": "MIT",
