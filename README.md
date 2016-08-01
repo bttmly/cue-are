@@ -43,7 +43,7 @@ var rows = qr("gibberish");
 
 #### Renderers
 
-`cue-are` comes with five renderers into which you can can plug the output of the main generation function. While each of these packages could be an `npm` module of it's own, they are tailored to work on the output structure of the generator. It does seem to me that a two-dimensional array of 1's and 0's is the most ergonomic way to represent QR code data anyway, so anything that produces output of that shape will work with any of the renderers.
+`cue-are` comes with five renderers into which you can can plug the output of the main generation function. While each of these packages could be an `npm` module of it's own, they are tailored to work on the output structure of the generator. It does seem to me that a two-dimensional array of 1's and 0's is the most ergonomic way to represent QR code data anyway, so anything that produces output of that shape will work with any of the renderers. Renderer's generally provide some way to customize the output. For instance, the HTML string renderer allows options to customize the CSS class names of "white" and "black" squares.
 
 
 ##### HTML
