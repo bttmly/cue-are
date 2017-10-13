@@ -1,4 +1,4 @@
-const QrCode = require("./vendor/QrCode");
+const QrCode = require("./vendor/QRCode");
 
 const DEFAULT_ECL = 1
 const DEFAULT_TN = -1;
