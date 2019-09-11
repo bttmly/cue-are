@@ -1,6 +1,6 @@
-const React = require("react");
+import React from "react";
 
-class QrComponent extends React.Component {
+export default class QrComponent extends React.Component {
 
   constructor (props) {
     super(props);
@@ -47,5 +47,3 @@ QrComponent.propTypes = {
   blackCellClass: React.PropTypes.string,
   whiteCellClass: React.PropTypes.string,
 };
-
-module.exports = QrComponent;
